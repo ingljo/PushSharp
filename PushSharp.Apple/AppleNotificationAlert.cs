@@ -32,6 +32,15 @@ namespace PushSharp.Apple
 			set;
 		}
 
+        /// <summary>
+        /// Title Text of the Notification's Alert
+        /// </summary>
+	    public string Title
+	    {
+	        get;
+            set;
+	    }
+
 		/// <summary>
 		/// Action Button's Localized Key
 		/// </summary>

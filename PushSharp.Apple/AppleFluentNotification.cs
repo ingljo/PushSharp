@@ -25,13 +25,32 @@ namespace PushSharp
 		{
 			if (n.Payload == null)
 				n.Payload = new AppleNotificationPayload();
+            if (n.Payload.Alert == null)
+            {
+                n.Payload.Alert = new AppleNotificationAlert();
+            }
 
-			n.Payload.Alert = new AppleNotificationAlert() { Body = body };
+		    n.Payload.Alert.Body = body;
 						
 			return n;
 		}
 
-        public static AppleNotification WithAlert(this AppleNotification n, string body, string launchImage)
+        public static AppleNotification WithAlert(this AppleNotification n, string title, string body)
+        {
+            if (n.Payload == null)
+                n.Payload = new AppleNotificationPayload();
+            if (n.Payload.Alert == null)
+            {
+                n.Payload.Alert = new AppleNotificationAlert();
+            }
+
+            n.Payload.Alert.Title = title;
+            n.Payload.Alert.Body = body;
+
+            return n;
+        }
+
+        public static AppleNotification WithAlert(this AppleNotification n, string title, string body, string launchImage)
         {
             if (n.Payload == null)
                 n.Payload = new AppleNotificationPayload();
